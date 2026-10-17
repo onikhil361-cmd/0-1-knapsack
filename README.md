@@ -38,7 +38,3 @@ python main.py
 Notes
 
 The classical result is a reference for evaluating the quantum approach. Processor routing and noise comparisons should be reported only when the corresponding experiments have actually been run.
-
-
-
-Can I paste this there ?
