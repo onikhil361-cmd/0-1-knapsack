@@ -1,0 +1,134 @@
+{
+  "problem": "PS-O3 0/1 Knapsack",
+  "values": [
+    10,
+    4,
+    7,
+    5,
+    8
+  ],
+  "weights": [
+    5,
+    3,
+    4,
+    2,
+    6
+  ],
+  "capacity": 15,
+  "qubo": {
+    "penalty_P": 2,
+    "variables": 9,
+    "slack_weights": [
+      1,
+      2,
+      4,
+      8
+    ],
+    "expression": "E = -sum(values[i]*x[i]) + P*(sum(weights[i]*x[i]) + s0 + 2*s1 + 4*s2 + 8*s3 - 15)^2"
+  },
+  "classical_brute_force": {
+    "best": {
+      "bits": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "weight": 14,
+      "value": 26
+    },
+    "feasible_subsets": 28,
+    "total_subsets": 32
+  },
+  "penalty_validation": {
+    "instance_specific_penalty_validated": true,
+    "optimal_feasible_energy": -26,
+    "lowest_energy_among_overweight_subsets": -25.0,
+    "overweight_subset_bits_at_that_energy": [
+      1,
+      1,
+      0,
+      1,
+      1
+    ],
+    "warning": "This validation applies only to the values, weights, capacity, and penalty in this script."
+  },
+  "qaoa_statevector": {
+    "p_layers": 1,
+    "optimized_expected_energy_scaled_by_penalty": 25.164023789207295,
+    "optimizer_success": true,
+    "optimizer_message": "Return from COBYLA because the trust region radius reaches its lower bound.",
+    "best_feasible_from_probability_order": {
+      "item_bits": [
+        1,
+        1,
+        1,
+        1,
+        0
+      ],
+      "slack_bits": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "weight": 14,
+      "value": 26,
+      "probability": 0.008459112137589627,
+      "qubo_energy": -26.0
+    },
+    "most_probable_basis_state": {
+      "item_bits": [
+        0,
+        0,
+        0,
+        0,
+        1
+      ],
+      "slack_bits": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "weight": 6,
+      "value": 8,
+      "slack_value": 6,
+      "probability": 0.01344038627636244,
+      "qubo_energy": 10.0
+    },
+    "note": "QAOA is approximate; use brute force as the exact correctness check."
+  },
+  "processor_routing": {
+    "Processor A": {
+      "physical_qubits": 5,
+      "logical_qubits_required": 9,
+      "status": "NOT FIT",
+      "reason": "Exact slack-variable QUBO needs 9 qubits; Processor A has only 5.",
+      "depth": null,
+      "cx_count": null,
+      "swap_count": null,
+      "noise_proxy": null
+    },
+    "Processor B": {
+      "physical_qubits": 10,
+      "logical_qubits_required": 9,
+      "status": "FITS",
+      "depth": 335,
+      "cx_count": 165,
+      "swap_count": 0,
+      "transpiled_operation_counts": {
+        "rz": 548,
+        "sx": 283,
+        "cx": 165,
+        "measure": 9
+      },
+      "one_qubit_gate_count_proxy": 831,
+      "estimated_gate_error_probability_proxy": 0.9170669143259995,
+      "estimated_readout_error_probability_proxy": 0.16625223786985022,
+      "estimated_combined_error_probability_proxy": 0.9308547254127542,
+      "note": "Noise figures are analytic proxies from the guide's rates, not an Aer noisy-shot result."
+    }
+  }
+}

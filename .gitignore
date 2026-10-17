@@ -1,0 +1,7 @@
+(
+echo __pycache__/
+echo *.py[cod]
+echo .venv/
+echo venv/
+echo .env
+) > .gitignore
